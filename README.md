@@ -7,4 +7,34 @@ parallax.js
 
 
 
+使用
+======
 
+HTML 结构：
+这里的每个标签和每个类都是必须的。
+```
+<div class="wrapper">
+	<div class="pages">
+		<!-- 每一屏 -->
+		<section>
+      // content.
+		</section>
+
+    <!-- 每二屏 -->
+		<section>
+		  // content.
+		</section>
+
+    <!-- 第三屏 -->
+		<section>
+		  // content.
+		</section>
+	</div>
+</div>
+```
+
+JS 引用：
+```
+<script src="{your path}/zepto.min.js"></script>
+<script src="{your path}/parallax.js"></script>
+```
