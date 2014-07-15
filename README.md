@@ -48,14 +48,23 @@ JS 引用：
 ```
 $.fn.parallax.defaults = {
 	direction: portrait，horizontal
+	
 	swipeAnim: default, cover, victoria (三种不同的分屏动画)
+	
 	drag:      true, false (是否具有拖拽效果)
+	
 	loading:   true, false (是否需要加载页)
+	
 	indicator: true, false (是否需要指示导航)
+	
 	arrow:     true, false (是否需要指引箭头)
+	
 	music:     true, false (是否需要音乐播放功能)
+	
 	musicUrl:  your-music-url
+	
 	speed:     分屏动画时常(drag=true，则不生效)
+	
 	timingfunc:分屏动画过度效果(drag=true，则不生效)
 }
 
