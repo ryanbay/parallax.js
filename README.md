@@ -16,11 +16,11 @@ HTML（这里的每个标签和每个类都是必须的）
 <div class="wrapper">	<!-- 最外层 DIV -->
 	<div class="pages">	<!-- 分屏的 wrapper -->
 		
-		<section>	<!-- 每一屏 -->
+		<section>	<!-- 第一屏 -->
 		   	// whatever you want.
 		</section>
 	
-		<section>	<!-- 每二屏 -->
+		<section>	<!-- 第二屏 -->
 			// whatever you want.
 		</section>
 	
