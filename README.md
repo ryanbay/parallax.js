@@ -5,7 +5,7 @@ parallax.js
 
 ![Up邀请函](https://raw.githubusercontent.com/hahnzhu/parallax.js/master/assets/gif/invitation.gif)&nbsp;&nbsp;&nbsp;![Tesla](https://raw.githubusercontent.com/hahnzhu/parallax.js/master/assets/gif/tesla.gif)
 
-我把视差滚动效果归于两类，第一类是基于鼠标滚轮的逐帧动画，第二类是分屏动画（即一屏一屏翻阅）。前者动画细节丰富，互动性强，但是容易让用户感觉疲劳失去耐性，后者分屏翻阅可以快速浏览内容，实现起来也相对简单。考虑到移动端屏幕尺寸以及操作媒介（手指）不同，分屏动画是最理想的，插件也仅专注于此。
+我把视差滚动效果归于两类，第一类是基于鼠标滚轮的逐帧动画，第二类是分屏动画（即一屏一屏翻阅）。前者动画细节丰富，互动性强，但是容易让用户感觉疲劳失去耐性，后者分屏翻阅可以快速浏览内容，实现起来也相对简单。考虑到移动端屏幕尺寸以及操作媒介（手指）不同，分屏动画是最理想的，此插件也仅专注于此。
 
 
 
@@ -45,8 +45,7 @@ JS 引用：
 ### 定制
 ```
 $.fn.parallax.defaults = {
-	direction: portrait，horizontal
-	
+	direction: 'portrait'	// 滚动方向，horizontal
 	swipeAnim: 'default', 	// 分屏动画，cover、victoria
 	drag:      false,  	// 是否具有拖拽效果
 	loading:   false,  	// 是否需要加载页
