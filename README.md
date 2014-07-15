@@ -9,7 +9,7 @@ parallax.js
 
 
 
-### 1、使用
+### 使用
 
 HTML（这里的每个标签和每个类都是必须的）
 ```
@@ -38,3 +38,35 @@ JS 引用：
 <script src="{your path}/zepto.min.js"></script>
 <script src="{your path}/parallax.js"></script>
 ```
+
+### 定制
+```
+$.fn.parallax.defaults = {
+	direction: portrait，horizontal
+	swipeAnim: default, cover, victoria (三种不同的分屏动画)
+	drag:      true, false (是否具有拖拽效果)
+	loading:   true, false (是否需要加载页)
+	indicator: true, false (是否需要指示导航)
+	arrow:     true, false (是否需要指引箭头)
+	music:     true, false (是否需要音乐播放功能)
+	musicUrl:  your-music-url
+	speed:     分屏动画时常(drag=true，则不生效)
+	timingfunc:分屏动画过度效果(drag=true，则不生效)
+}
+
+```
+
+
+
+
+
+
+### MIT license
+
+Copyright (c) 2014 turing <[o.u.turing@gmail.com](mailto:o.u.turing@gmail.com)>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
