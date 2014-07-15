@@ -33,6 +33,11 @@ HTML（这里的每个标签和每个类都是必须的）
 </div>
 ```
 
+CSS 引用：
+```
+<style rel="stylesheet" href="{your path}/parallax.css"></style>
+```
+
 JS 引用：
 ```
 <script src="{your path}/zepto.min.js"></script>
