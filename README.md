@@ -49,6 +49,9 @@ JS 引用：
 ```
 <script>
 // 以下为默认样式
+// 注意这种写法会替换原来的 defaults 对象，最好写全，或者这么写：
+// $.fn.parallax.defaults.speed = 5000;
+
 $.fn.parallax.defaults = {
 	direction: 'portrait',	// 滚动方向，horizontal
 	swipeAnim: 'default',	// 分屏动画，cover、victoria
