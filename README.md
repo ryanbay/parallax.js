@@ -83,12 +83,10 @@ $('.pages').parallax({
 </script>
 ```
 
-### 接口
+### 更多
 
+* 当前 page 会自动添加 class = "current"
 * 自动为 page 添加 data-id（便于添加样式 [data-id="x"]）
-* 当前 page 会自动添加 class="current"
-* 暴露方法：expose(index, orientation)
-
 
 
 ## Copyright and license
