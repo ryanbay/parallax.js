@@ -59,8 +59,10 @@ $.fn.parallax.defaults = {
 
 ```
 
-
-
+### 接口
+* 自动为 page 添加 data-id
+* 当前 page 会自动添加 ```current``` 类
+* 暴露方法：expose(index, orientation)
 
 
 
