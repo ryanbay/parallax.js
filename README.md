@@ -48,20 +48,22 @@ JS 引用：
 ### 定制
 ```
 <script>
+// 以下为默认样式
 $.fn.parallax.defaults = {
 	direction: 'portrait',	// 滚动方向，horizontal
-	swipeAnim: 'default', 	// 分屏动画，cover、victoria
-	drag:      false,  	// 是否具有拖拽效果
-	loading:   false,  	// 是否需要加载页
-	indicator: false,  	// 是否需要指示导航
-	arrow:     false,  	// 是否需要指引箭头
-	music:     false,  	// 是否需要音乐播放
-	musicUrl:  '',     	// 音乐链接
-	speed:     300ms,  	// 分屏动画时长
-	timingfunc:'ease' 	// 分屏动画过度效果
+	swipeAnim: 'default',	// 分屏动画，cover、victoria
+	drag:      false,	// 是否具有拖拽效果
+	loading:   false,	// 是否需要加载页
+	indicator: false,	// 是否需要指示导航
+	arrow:     false,	// 是否需要指引箭头
+	music:     false,	// 是否需要音乐播放
+	musicUrl:  '',		// 音乐链接
+	speed:     300ms,	// 分屏动画时长
+	timingfunc:'ease'	// 分屏动画过度效果
 }
 
 $('.pages').parallax();
+
 </script>
 
 Or
