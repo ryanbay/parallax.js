@@ -90,8 +90,26 @@ $('.pages').parallax({
 
 ### 更多
 
-* 当前 page 会自动添加 class = "current"
-* 自动为 page 添加 data-id（便于添加样式 [data-id="x"]）
+```
+<div class="wrapper">
+
+	// 初始化后添加设置或默认的 direction、swipeAnim 以及
+	// 一个动态的方向类 forward(向前翻) backward(向后翻)
+	<div class="pages portrait/horizontal  cover/cover/victoria  forward/backward(移动的时候才会添加)">
+		
+		// 为 page 添加 data-id
+		<section data-id="1">
+			...
+		</section>
+		
+		// 当前 page 会自动添加 current 类
+		<section data-id="2" class="current">
+			...
+		</section>
+	</div>
+</div>
+		
+```
 
 
 ## Copyright and license
