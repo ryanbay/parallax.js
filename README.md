@@ -13,7 +13,7 @@ parallax.js
 
 HTML（这里的每个标签和每个类都是必须的）
 ```
-<div class="wrapper">	<!-- 最外层 DIV -->
+<div class="wrapper">
 	<div class="pages">	<!-- 分屏的 wrapper -->
 		
 		<section>	<!-- 第一屏 -->
@@ -40,12 +40,16 @@ JS 引用：
 ```
 <script src="{your path}/zepto.min.js"></script>
 <script src="{your path}/parallax.js"></script>
+<script>
+  $('.pages').parallax();
+</script>
 ```
 
 ### 定制
 ```
+<script>
 $.fn.parallax.defaults = {
-	direction: 'portrait'	// 滚动方向，horizontal
+	direction: 'portrait',	// 滚动方向，horizontal
 	swipeAnim: 'default', 	// 分屏动画，cover、victoria
 	drag:      false,  	// 是否具有拖拽效果
 	loading:   false,  	// 是否需要加载页
@@ -53,15 +57,36 @@ $.fn.parallax.defaults = {
 	arrow:     false,  	// 是否需要指引箭头
 	music:     false,  	// 是否需要音乐播放
 	musicUrl:  '',     	// 音乐链接
-	speed:     300ms,  	// 分屏动画时长(drag:true时不生效)
-	timingfunc:'ease' 	// 分屏动画过度效果(drag:true时不生效)
+	speed:     300ms,  	// 分屏动画时长
+	timingfunc:'ease' 	// 分屏动画过度效果
 }
 
+$('.pages').parallax();
+</script>
+
+Or
+
+<script>
+$('.pages').parallax({
+	direction: 'portrait',
+	swipeAnim: 'default',
+	drag:      false,
+	loading:   false,
+	indicator: false,
+	arrow:     false,
+	music:     false,
+	musicUrl:  '',
+	speed:     300ms,
+	timingfunc:'ease'
+});
+
+</script>
 ```
 
 ### 接口
-* 自动为 page 添加 data-id
-* 当前 page 会自动添加 ```current``` 类
+
+* 自动为 page 添加 data-id（便于添加样式 [data-id="x"]）
+* 当前 page 会自动添加 class="current"
 * 暴露方法：expose(index, orientation)
 
 
