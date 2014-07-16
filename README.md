@@ -48,10 +48,7 @@ JS 引用：
 ### 定制
 ```
 <script>
-// 以下为默认样式
-// 注意这种写法会替换原来的 defaults 对象，最好写全，或者这么写：
-// $.fn.parallax.defaults.speed = 5000;
-
+// 可通过以下方式进行定制
 $.fn.parallax.defaults = {
 	direction: 'portrait',	// 滚动方向，horizontal
 	swipeAnim: 'default',	// 分屏动画，cover、victoria
@@ -62,6 +59,8 @@ $.fn.parallax.defaults = {
 	music:     false,	// 是否需要音乐播放
 	musicUrl:  ''		// 音乐链接
 }
+// 注意上述写法会替换原来的 defaults 对象，最好写全，或者这么写：
+// $.fn.parallax.defaults.speed = 5000;
 
 $('.pages').parallax();
 
