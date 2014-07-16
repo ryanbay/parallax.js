@@ -60,9 +60,7 @@ $.fn.parallax.defaults = {
 	indicator: false,	// 是否需要指示导航
 	arrow:     false,	// 是否需要指引箭头
 	music:     false,	// 是否需要音乐播放
-	musicUrl:  '',		// 音乐链接
-	speed:     300ms,	// 分屏动画时长
-	timingfunc:'ease'	// 分屏动画过度效果
+	musicUrl:  ''		// 音乐链接
 }
 
 $('.pages').parallax();
@@ -80,15 +78,13 @@ $('.pages').parallax({
 	indicator: false,
 	arrow:     false,
 	music:     false,
-	musicUrl:  '',
-	speed:     300ms,
-	timingfunc:'ease'
+	musicUrl:  ''
 });
 
 </script>
 ```
 
-### 更多
+### 接口
 
 ```
 <div class="wrapper">
@@ -111,7 +107,15 @@ $('.pages').parallax({
 		
 ```
 
+## Log
 
-## Copyright and license
+* v 0.1
+	* 提供三种翻页动画
+	* 提供横竖屏翻页操作
+	* 解决 iOS 和 Android 的兼容问题
 
-Code and documentation copyright 2011-2014 Twitter, Inc. Code released under [the MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).
+
+
+## License
+
+Code released under [the MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).
