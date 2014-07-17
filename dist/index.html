@@ -2,37 +2,34 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="author" content="ISUX">
+	<meta name="author" content="hahnzhu" />
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<link rel="stylesheet" href="css/style.css">
+	<title>Demo</title>
+	<link rel="stylesheet" href="css/parallax.min.css">
 </head>
 <body>
-
 <div class="wrapper">
 	<div class="pages">
-		<!-- 每一屏 -->
-		<section>
+		<!-- 第一屏 -->
+		<section data-id="1">
 		</section>
 
-        <!-- 每二屏 -->
-		<section>
+        <!-- 第二屏 -->
+		<section data-id="2">
 		</section>
 
         <!-- 第三屏 -->
-		<section>
+		<section data-id="3">
 		</section>
 	</div>
 </div>
-
 <script src="js/zepto.min.js"></script>
-<script src="js/parallax.js"></script>
+<script src="js/parallax.min.js"></script>
 <script>
-
 	$('.pages').parallax();
-
 </script>
 </body>
 </html>

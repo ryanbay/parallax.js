@@ -1,22 +1,3 @@
-/*
- * 值得注意的点：
-    1、动画过程中不可中止(movePrevent)
-
- * bug：
-    1、cover/victoria 动画过程中如果立刻按住，会出现意想不到的东西
-    fix：movePrevent 300ms 之后就会取消，所以如果动画过程中按住，过300ms之后放开，就会触发 onEnd 函数。
-        所以解决方法就是保证每个流程中，onStart, onEnd 只执行一次
-
-    2、cover/victoria 没有考虑过屏幕翻转的情况
-    fix：不允许屏幕翻转
-
-    3、cover/victoria 在 drag 效果下，Andriod 浏览器都有问题（第三张图片会先出现），且无动画过度效果。
-    fix：因为条件 endPos>startPos 没有考虑过 endPos=startPos 的情况，但是有时候会触发，从而让语句往else执行
-
-    4、speed 时间设置有一些效果无效(drag:false)
-    fix：自动 fix
-*/
-
 if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript requires Zepto') }
 
 !function($) {
@@ -54,14 +35,6 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
             $pageArr = $pages.find('section');
 
             init();
-
-            $pages.on("webkitAnimationEnd webkitTransitionEnd", function(){
-                setTimeout(function() {
-                    $(".back").hide().removeClass("back");
-                    $(".front").show().removeClass("front");
-                    $pages.removeClass('forward backward animate');
-                }, 10);
-            });
         })
     }
 
@@ -92,7 +65,7 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
         pageHeight  = $(window).height();        // 获取手机屏幕高度
 
         for(var i=0; i<pageCount; i++){          // 批量添加 data-id
-            $($pageArr[i]).attr('data-id', i);
+            $($pageArr[i]).attr('data-id', i+1);
         }
 
         if (!options.loading) {
@@ -100,8 +73,8 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
         }
 
         $pages
-            .addClass(options.direction)                // 添加 direction 类
-            .addClass(options.swipeAnim);               // 添加 swipeAnim 类
+            .addClass(options.direction)         // 添加 direction 类
+            .addClass(options.swipeAnim);        // 添加 swipeAnim 类
 
         $pageArr.css({                           // 初始化 page 宽高
             'width': pageWidth + 'px',
@@ -142,12 +115,15 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
         }
         touchDown = true;
 
-        // 确定坐标
         options.direction == 'horizontal' ? startPos = e.pageX : startPos = e.pageY;
 
         // 阻止过度动画
         if (options.swipeAnim == 'default') {
             $pages.addClass('drag');
+        }
+        if ((options.swipeAnim == 'cover' && options.drag) ||
+            (options.swipeAnim == 'victoria' && options.drag)) {
+            $pageArr.addClass('drag');
         }
 
         offset = $pages.css("-webkit-transform")
@@ -218,6 +194,7 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
         }
         else if (options.swipeAnim == 'cover'){
             if (options.drag) {
+                $pageArr.removeClass('drag');
                 if(!isHeadOrTail()) {
                     if(Math.abs(endPos - startPos) <= 50) {
                         if(endPos >= startPos) {
@@ -252,6 +229,7 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
         }
         else if (options.swipeAnim == 'victoria') {
             if (options.drag) {
+                $pageArr.removeClass('drag');
                 if(!isHeadOrTail()) {
                     if(Math.abs(endPos - startPos) <= 50) {
                         if(endPos >= startPos) {
@@ -443,6 +421,10 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
 
 
 
+
+    // 添加 forward / backward 状态类
+    // ==============================
+
     function addDirecClass() {
         if(options.direction == 'horizontal'){
             if (endPos >= startPos) {
@@ -460,6 +442,10 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
     }
 
 
+
+
+    // 在第一页向前翻和末页前后翻都不允许
+    // ==============================
 
     function isHeadOrTail() {
         if (options.direction == 'horizontal') {
@@ -489,12 +475,33 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
         .on('touchend', function (e) {
             onEnd(e.changedTouches[0]);
         })
-        .on('click', '.h-music', function() {
+        .on('touchend', '.h-music', function() {
+            var $this = $(this);
+
+            if ($this.hasClass('close')) {
+                $this.removeClass('close');
+            } else {
+                $this.addClass('close');
+            }
         })
         .on("orientationchange", function() {
             if (options.swipeAnim == 'default') {
                 init();
             }
+        })
+        .on("webkitAnimationEnd webkitTransitionEnd", function(){
+            setTimeout(function() {
+                $(".back").hide().removeClass("back");
+                $(".front").show().removeClass("front");
+                // $pages.removeClass('forward backward animate');
+                $pages.removeClass('animate');
+
+                // 动画结束后再添加 current 类
+                // $($pageArr.removeClass('current').get(curPage)).addClass('current');
+                // if (options.indicator) {
+                //     $($('.h-indicator ul li').removeClass('current').get(curPage)).addClass('current');
+                // }
+            }, 10);
         });
 
 
@@ -505,7 +512,9 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
     $(window).on("load", function() {
 
         if (options.loading) {
-            $(".h-loading").remove();
+            setTimeout(function() {
+                $(".h-loading").remove();
+            }, 2000)
             movePrevent = false;
             $($pageArr[curPage]).addClass('current');
         }
@@ -533,10 +542,10 @@ if (typeof Zepto === 'undefined') { throw new Error('Parallax.js\'s JavaScript r
 
         if (options.music) {
             movePrevent = false;
-            if(musicUrl == '') {
+            if(options.musicUrl == '') {
                 throw new Error('music url is needed.');
             }
-            $('.helper').append('<div class="h-music"></div>');
+            $('.helper').append('<div class="h-music"><span class="h-music-inner"></span></div>');
         }
     });
 
