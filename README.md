@@ -48,10 +48,7 @@ JS 引用：
 ### 定制
 ```
 <script>
-// 以下为默认样式
-// 注意这种写法会替换原来的 defaults 对象，最好写全，或者这么写：
-// $.fn.parallax.defaults.speed = 5000;
-
+// 可通过以下方式进行定制
 $.fn.parallax.defaults = {
 	direction: 'portrait',	// 滚动方向，horizontal
 	swipeAnim: 'default',	// 分屏动画，cover、victoria
@@ -62,6 +59,8 @@ $.fn.parallax.defaults = {
 	music:     false,	// 是否需要音乐播放
 	musicUrl:  ''		// 音乐链接
 }
+// 注意上述写法会替换原来的 defaults 对象，最好写全，或者这么写：
+// $.fn.parallax.defaults.speed = 5000;
 
 $('.pages').parallax();
 
@@ -91,7 +90,7 @@ $('.pages').parallax({
 
 	// 初始化后添加设置或默认的 direction、swipeAnim 以及
 	// 一个动态的方向类 forward(向前翻) backward(向后翻)
-	<div class="pages  portrait/horizontal  cover/cover/victoria  forward/backward(移动的时候才会添加)">
+	<div class="pages  portrait/horizontal  cover/cover/victoria  forward/backward(翻页的过程才会添加)">
 		
 		// 为 page 添加 data-id
 		<section data-id="1">
@@ -118,4 +117,4 @@ $('.pages').parallax({
 
 ## License
 
-Code released under [the MIT license](LICENSE). Docs released under [Creative Commons](docs/LICENSE).
+Parallax.js is released under the [the MIT license](LICENSE).
