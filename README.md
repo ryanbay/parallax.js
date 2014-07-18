@@ -48,11 +48,11 @@ JS 引用：
 ### 定制
 ```
 <script>
-// 可通过以下方式进行定制
+// 可通过以下方式进行定制(以下都是默认配置)
 $.fn.parallax.defaults = {
-	direction: 'portrait',	// 滚动方向，horizontal
+	direction: 'vertical',	// 滚动方向，horizontal
 	swipeAnim: 'default',	// 分屏动画，cover、victoria
-	drag:      false,	// 是否具有拖拽效果
+	drag:      true,	// 是否具有拖拽效果
 	loading:   false,	// 是否需要加载页
 	indicator: false,	// 是否需要指示导航
 	arrow:     false,	// 是否需要指引箭头
@@ -70,9 +70,9 @@ Or
 
 <script>
 $('.pages').parallax({
-	direction: 'portrait',
+	direction: 'vertical',
 	swipeAnim: 'default',
-	drag:      false,
+	drag:      true,
 	loading:   false,
 	indicator: false,
 	arrow:     false,
