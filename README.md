@@ -90,7 +90,7 @@ $('.pages').parallax({
 
 	// 初始化后添加设置或默认的 direction、swipeAnim 以及
 	// 一个动态的方向类 forward(向前翻) backward(向后翻)
-	<div class="pages  portrait/horizontal  cover/cover/victoria  forward/backward(翻页的过程才会添加)">
+	<div class="pages  verticle/horizontal  cover/cover/victoria  forward/backward(翻页的过程才会添加)">
 		
 		// 为 page 添加 data-id
 		<section data-id="1">
