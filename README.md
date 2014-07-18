@@ -55,9 +55,8 @@ $.fn.parallax.defaults = {
 	drag:      true,	// 是否具有拖拽效果
 	loading:   false,	// 是否需要加载页
 	indicator: false,	// 是否需要指示导航
-	arrow:     false,	// 是否需要指引箭头
-	music:     false,	// 是否需要音乐播放
-	musicUrl:  ''		// 音乐链接
+	arrow:     false	// 是否需要指引箭头
+
 }
 // 注意上述写法会替换原来的 defaults 对象，最好写全，或者这么写：
 // $.fn.parallax.defaults.speed = 5000;
@@ -75,9 +74,7 @@ $('.pages').parallax({
 	drag:      true,
 	loading:   false,
 	indicator: false,
-	arrow:     false,
-	music:     false,
-	musicUrl:  ''
+	arrow:     false
 });
 
 </script>
