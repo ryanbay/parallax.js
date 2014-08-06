@@ -48,12 +48,6 @@ JS 引用：
 ### 定制
 ```
 <script>
-$('.pages').parallax();
-</script>
-
-Or
-
-<script>
 $('.pages').parallax({
 	direction: 'vertical',
 	swipeAnim: 'default', // cover/victoria
