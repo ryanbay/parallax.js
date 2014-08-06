@@ -14,19 +14,19 @@ parallax.js
 HTML（这里的每个标签和每个类都是必须的）
 ```
 <div class="wrapper">
-	<div class="pages">	<!-- 分屏的 wrapper -->
+	<div class="pages">
 		
-		<section>	<!-- 第一屏 -->
+		<div class="page">	<!-- 第一屏 -->
 		   	// whatever you want.
-		</section>
+		</div>
 	
-		<section>	<!-- 第二屏 -->
+		<div class="page">	<!-- 第二屏 -->
 			// whatever you want.
-		</section>
+		</div>
 	
-		<section>	<!-- 第三屏 -->
+		<div class="page">	<!-- 第三屏 -->
 			// whatever you want.
-		</section>
+		</div>
 	</div>
 </div>
 ```
@@ -48,21 +48,7 @@ JS 引用：
 ### 定制
 ```
 <script>
-// 可通过以下方式进行定制(以下都是默认配置)
-$.fn.parallax.defaults = {
-	direction: 'vertical',	// 滚动方向，horizontal
-	swipeAnim: 'default',	// 分屏动画，cover、victoria
-	drag:      true,	// 是否具有拖拽效果
-	loading:   false,	// 是否需要加载页
-	indicator: false,	// 是否需要指示导航
-	arrow:     false	// 是否需要指引箭头
-
-}
-// 注意上述写法会替换原来的 defaults 对象，最好写全，或者这么写：
-// $.fn.parallax.defaults.speed = 5000;
-
 $('.pages').parallax();
-
 </script>
 
 Or
@@ -70,7 +56,7 @@ Or
 <script>
 $('.pages').parallax({
 	direction: 'vertical',
-	swipeAnim: 'default',
+	swipeAnim: 'default', // cover/victoria
 	drag:      true,
 	loading:   false,
 	indicator: false,
